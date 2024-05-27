@@ -21,16 +21,21 @@ export default function Pokedex() {
     const nextPokemon = () =>{
         setId(id + 1)
     }
-
+    const previousPokemon = () =>{
+        setId(id-1)
+    }
     return (
         <div>
-            {pokemon && (
-                    <div className="pokemon">
-                        <h1>Pokémon</h1>
-                        <p>{pokemon.name}</p>
-                        <p>Peso: {pokemon.weight}g</p>
-                        <img src={pokemon.sprites.front_default} alt="Pokemon" />
+               {pokemon && (
+                    <div className="container-pokemon">
+                        <h1 className="title" >Pokémon</h1>
+                        <p className="name">{pokemon.name}</p>
+                        <p className="Peso">Peso: {pokemon.weight}g</p>
+                        <img className="pokemon-image" src={pokemon.sprites.front_default} alt="Pokemon" />
+                        <div className="buttons">
+                        <button onClick={previousPokemon}>Voltar</button>
                         <button onClick={nextPokemon}>Próximo</button>
+                        </div>
                     </div>
             )}
         </div>
